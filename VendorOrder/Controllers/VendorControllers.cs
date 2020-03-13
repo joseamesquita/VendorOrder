@@ -10,7 +10,7 @@ namespace VendorOrder.Controllers
     [HttpGet("/vendors")]
     public ActionResult VendorsIndex()
     {
-      List<VendorOrder> showList = Vendor.Board;
+      List<Vendor> showList = Vendor.Board;
       return View(showList);
     }
 
@@ -50,7 +50,7 @@ namespace VendorOrder.Controllers
     [HttpPost("/vendors/{id}")]
     public ActionResult Update(int id, string title, string description, string contact)
     {
-      Jobs.UpdateOrder(id, title, description, contact);
+      Vendor.UpdateVendor(id, title, description, contact);
       return RedirectToAction("VendorsIndex");
     }
 
@@ -58,7 +58,7 @@ namespace VendorOrder.Controllers
     [HttpPost("/vendors/delete/{id}")]
     public ActionResult Delete(int id)
     {
-      Vendor.DeleteOrder(id);
+      Vendor.DeleteVendor(id);
       return View();
     }
   }

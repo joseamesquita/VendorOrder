@@ -1,0 +1,21 @@
+
+@{
+  Layout = "Layout";
+}
+<div class="col-md-8 offset-md-2">
+
+  <h1 class="text-center">Vendors Index</h1>
+  <h2 class="text-center"> Number of Vendors logged : @Model.Count </h2>
+  <ul class="list-group">
+    @foreach (var vendors in Model)
+  { 
+    <li class="list-group-item">Id: @vendors.Id</li>
+    <li class="list-group-item">Title: @vendors.Title</li>
+    <li class="list-group-item">Description: @vendors.Description</li>
+    <li class="list-group-item">Contact: @vendors.Contact</li>
+
+    <a href="/vendors/@vendors.Id"><button class="btn btn-success btn-lg btn-block">Edit</button></a>
+  <br>
+  }
+  </ul>
+</div>
