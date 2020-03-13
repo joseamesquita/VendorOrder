@@ -4,9 +4,9 @@ using VendorOrder.Models;
 
 namespace VendorOrder.Controllers
 {
-  public class VendorsController : Controller
+  public class VendorController : Controller
   {
-    //index
+
     [HttpGet("/vendors")]
     public ActionResult VendorsIndex()
     {
@@ -14,7 +14,7 @@ namespace VendorOrder.Controllers
       return View(showList);
     }
 
-    //New
+
     [HttpGet("/vendors/new")]
     public ActionResult New()
     {
@@ -22,7 +22,7 @@ namespace VendorOrder.Controllers
       return View();
     }
 
-    //Create
+
     [HttpPost("/vendors/create")]
     public ActionResult Create(string title, string description, string contact)
     {
@@ -30,7 +30,7 @@ namespace VendorOrder.Controllers
       return RedirectToAction("VendorsIndex");
     }
 
-    //Show
+
     [HttpGet("/vendors/{id}")]
     public ActionResult Show(int id)
     {
@@ -38,7 +38,7 @@ namespace VendorOrder.Controllers
       return View(order);
     }
 
-    //Edit form
+
     [HttpGet("/vendors/{id}/edit")]
     public ActionResult Edit(int id)
     {
@@ -46,7 +46,7 @@ namespace VendorOrder.Controllers
       return View(order);
     }
 
-    //Update
+
     [HttpPost("/vendors/{id}")]
     public ActionResult Update(int id, string title, string description, string contact)
     {
@@ -54,7 +54,7 @@ namespace VendorOrder.Controllers
       return RedirectToAction("VendorsIndex");
     }
 
-    //Destroy
+
     [HttpPost("/vendors/delete/{id}")]
     public ActionResult Delete(int id)
     {
