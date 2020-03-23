@@ -4,13 +4,13 @@ using VendorOrder.Models;
 
 namespace VendorOrder.Controllers
 {
-  public class VendorController : Controller
+  public class VendorsController : Controller
   {
 
     [HttpGet("/vendors")]
     public ActionResult VendorsIndex()
     {
-      List<Vendor> showList = Vendor.Board;
+      List<Vendors> showList = Vendors.Board;
       return View(showList);
     }
 
@@ -26,7 +26,7 @@ namespace VendorOrder.Controllers
     [HttpPost("/vendors/create")]
     public ActionResult Create(string title, string description, string contact)
     {
-      Vendor order = new Vendor(title, description, contact);
+      Vendors order = new Vendors(title, description, contact);
       return RedirectToAction("VendorsIndex");
     }
 
@@ -34,7 +34,7 @@ namespace VendorOrder.Controllers
     [HttpGet("/vendors/{id}")]
     public ActionResult Show(int id)
     {
-      Vendor order = Vendor.Find(id);
+      Vendors order = Vendors.Find(id);
       return View(order);
     }
 
@@ -42,7 +42,7 @@ namespace VendorOrder.Controllers
     [HttpGet("/vendors/{id}/edit")]
     public ActionResult Edit(int id)
     {
-      Vendor order = Vendor.Find(id);
+      Vendors order = Vendors.Find(id);
       return View(order);
     }
 
@@ -50,7 +50,7 @@ namespace VendorOrder.Controllers
     [HttpPost("/vendors/{id}")]
     public ActionResult Update(int id, string title, string description, string contact)
     {
-      Vendor.UpdateVendor(id, title, description, contact);
+      Vendors.UpdateVendor(id, title, description, contact);
       return RedirectToAction("VendorsIndex");
     }
 
@@ -58,7 +58,7 @@ namespace VendorOrder.Controllers
     [HttpPost("/vendors/delete/{id}")]
     public ActionResult Delete(int id)
     {
-      Vendor.DeleteVendor(id);
+      Vendors.DeleteVendor(id);
       return View();
     }
   }

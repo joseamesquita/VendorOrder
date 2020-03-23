@@ -2,10 +2,10 @@ using System.Collections.Generic;
 
 namespace VendorOrder.Models
 {
-  public class Vendor
+  public class Vendors
   {
     private static int _vendorCount = 0;
-    public static List<Vendor> Board { get; set; } = new List<Vendor>();
+    public static List<Vendors> Board { get; set; } = new List<Vendors>();
 
     public string Title { get; set; }
 
@@ -16,7 +16,7 @@ namespace VendorOrder.Models
     public int Index { get; set; }
     public int Id { get; set; }
 
-    public Vendor(string title, string description, string contact)
+    public Vendors(string title, string description, string contact)
     {
       Title = title;
       Description = description;
@@ -30,7 +30,7 @@ namespace VendorOrder.Models
       Board.Clear();
     }
 
-    public static Vendor Find(int id)
+    public static Vendors Find(int id)
     {
       int index = 0;
       foreach (var item in Board)
@@ -42,18 +42,18 @@ namespace VendorOrder.Models
         }
         index++;
       }
-      return Vendor.Board[0];
+      return Vendors.Board[0];
     }
 
     public static void DeleteVendor(int id)
     {
-      Vendor ven = Find(id);
+      Vendors ven = Find(id);
       Board.RemoveAt(ven.Index);
     }
 
     public static void UpdateVendor(int id, string title, string description, string contact)
     {
-      Vendor ven = Find(id);
+      Vendors ven = Find(id);
       ven.Title = title;
       ven.Description = description;
       ven.Contact = contact;
@@ -62,4 +62,6 @@ namespace VendorOrder.Models
 
 
   }
+
+
 }
