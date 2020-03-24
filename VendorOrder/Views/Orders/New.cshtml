@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+<div class="col-md-6 offset-md-3">
+
+<h1 class="text-center" >Add new Order</h1>
+<form action="/vendors/create" method="post">
+ <div class="form-group">
+  <label for="title">Name of the Order</label>
+  <input type="text" class="form-control" name="title">
+</div>
+
+ <div class="form-group">
+  <label for="description">Description of the Order</label>
+  <input type="text" class="form-control" name="description">
+</div>
+ <div class="form-group">
+  <label for="contact">Cost of the Order</label>
+  <input type="text" class="form-control" name="contact">
+</div>
+  <button type="submit" class="btn btn-info btn-block">Submit</button>
+</form>
+
+</div>
