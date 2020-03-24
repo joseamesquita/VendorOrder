@@ -8,7 +8,7 @@ namespace VendorOrder.Controllers
   {
 
     [HttpGet("/vendors")]
-    public ActionResult VendorsIndex()
+    public ActionResult Index()
     {
       List<Vendors> showList = Vendors.Board;
       return View(showList);
@@ -27,7 +27,7 @@ namespace VendorOrder.Controllers
     public ActionResult Create(string title, string description, string contact)
     {
       Vendors order = new Vendors(title, description, contact);
-      return RedirectToAction("VendorsIndex");
+      return RedirectToAction("Index");
     }
 
 
@@ -51,7 +51,7 @@ namespace VendorOrder.Controllers
     public ActionResult Update(int id, string title, string description, string contact)
     {
       Vendors.UpdateVendor(id, title, description, contact);
-      return RedirectToAction("VendorsIndex");
+      return RedirectToAction("Index");
     }
 
 
