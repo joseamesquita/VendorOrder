@@ -10,7 +10,8 @@ namespace VendorOrder.Controllers
     [HttpGet("/vendors")]
     public ActionResult Index()
     {
-      List<Vendors> showList = Vendors.Board;
+      List<Vendors> showList = Vendors.GetAll();
+      // List<Vendors> showList = Vendors.Board;
       return View(showList);
     }
 
@@ -30,13 +31,34 @@ namespace VendorOrder.Controllers
       return RedirectToAction("Index");
     }
 
+    [HttpPost("/vendors/orders")]
+    public ActionResult Create(int id, string title, string description, int price, string date)
+    {
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Vendors foundVendor = Vendors.Find(id);
+      Order newOrder = new Order(title, description, price, date);
+      foundVendor.AddOrder(newOrder);
+      List<Order> vendorOrders = foundVendor.Orders;
+      model.Add("orders", vendorOrders);
+      model.Add("vendor", foundVendor);
+      return View("Show", model);
+    }
+
+
 
     [HttpGet("/vendors/{id}")]
     public ActionResult Show(int id)
     {
-      Vendors order = Vendors.Find(id);
-      return View(order);
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Vendors selectedVendors = Vendors.Find(id);
+      List<Order> vendorOrders = selectedVendors.Orders;
+      model.Add("vendor", selectedVendors);
+      model.Add("orders", vendorOrders);
+      // Vendors order = Vendors.Find(id);
+      return View(model);
     }
+
+
 
 
     [HttpGet("/vendors/{id}/edit")]
@@ -61,6 +83,8 @@ namespace VendorOrder.Controllers
       Vendors.DeleteVendor(id);
       return View();
     }
+
+
   }
 
 }

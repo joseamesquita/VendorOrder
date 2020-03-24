@@ -33,6 +33,12 @@ namespace VendorOrder.Models
       Board.Clear();
     }
 
+    public static List<Order> GetAll()
+
+    {
+      return Board;
+    }
+
     public static Order Find(int id)
     {
       int index = 0;

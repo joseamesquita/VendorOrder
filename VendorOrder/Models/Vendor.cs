@@ -7,6 +7,8 @@ namespace VendorOrder.Models
     private static int _vendorCount = 0;
     public static List<Vendors> Board { get; set; } = new List<Vendors>();
 
+    public List<Order> Orders { get; set; }
+
     public string Title { get; set; }
 
     public string Description { get; set; }
@@ -21,13 +23,21 @@ namespace VendorOrder.Models
       Title = title;
       Description = description;
       Contact = contact;
+      // Id = ++_vendorCount;
+      Board.Add(this);
       Index = Board.Count;
       Id = ++_vendorCount;
-      Board.Add(this);
+      Orders = new List<Order> { };
+
     }
     public static void ClearAll()
     {
       Board.Clear();
+    }
+
+    public static List<Vendors> GetAll()
+    {
+      return Board;
     }
 
     public static Vendors Find(int id)
@@ -58,6 +68,10 @@ namespace VendorOrder.Models
       ven.Description = description;
       ven.Contact = contact;
 
+    }
+    public void AddOrder(Order order)
+    {
+      Orders.Add(order);
     }
 
 
