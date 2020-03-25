@@ -1,17 +1,30 @@
+@using VendorOrder.Models;
 @{
   Layout = "_Layout";
 }
 <div class="row">
   <div class="col-md-8 offset-md-2">
 
-    <h1 class="text-center">Show Orders
-      
-      <li class="list-group-item">Title: @Model.Title</li>
-    <ul>
+    <h1 class="text-center">Show Orders for @Model["vendor"].Name </h1>
+    
+    @if(@Model["orders"].Count == 0)
+    {
+      <p>No orders for this vendor!</p>
+    }
+    <ul class="list-group">
+    @foreach (Order order in Model["orders"])
+  { 
+    <li><a href='/vendors/@Model["vendor"].Id/orders.Id'>@order.Title</a></li>
+    @* <a href="/vendors/@vendor.Id"><button class="btn btn-success btn-lg btn-block">Show</button></a> *@
+  <br>
+  }
+  
+  </ul>
+    
+    <a href='/vendors/@Model["vendor"].Id/orders/new' class="btn btn-success">Add new order</a>
+    <a href='/vendors/@Model["vendor"].Id/edit'><button class="btn btn-success">Edit</button></a>
 
-    <a href="/vendors/@Model.Id/edit"><button class="btn btn-success">Edit</button></a>
-
-    <form action="/vendors/delete/@Model.Id" method="post">
+    <form action='/vendors/delete/@Model["vendor"].Id' method="post">
       <button class="btn btn-danger">Delete</button>
     </form>
   </div>

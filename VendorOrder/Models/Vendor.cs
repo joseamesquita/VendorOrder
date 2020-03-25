@@ -4,12 +4,12 @@ namespace VendorOrder.Models
 {
   public class Vendors
   {
-    private static int _vendorCount = 0;
-    public static List<Vendors> Board { get; set; } = new List<Vendors>();
+    private static int _vendorCount = 1;
+    public static List<Vendors> Board = new List<Vendors>();
 
     public List<Order> Orders { get; set; }
 
-    public string Title { get; set; }
+    public string Name { get; set; }
 
     public string Description { get; set; }
 
@@ -18,14 +18,14 @@ namespace VendorOrder.Models
     public int Index { get; set; }
     public int Id { get; set; }
 
-    public Vendors(string title, string description, string contact)
+    public Vendors(string name, string description, string contact)
     {
-      Title = title;
+      Name = name;
       Description = description;
       Contact = contact;
       // Id = ++_vendorCount;
       Board.Add(this);
-      Index = Board.Count;
+      // Index = Board.Count;
       Id = ++_vendorCount;
       Orders = new List<Order> { };
 
@@ -42,17 +42,17 @@ namespace VendorOrder.Models
 
     public static Vendors Find(int id)
     {
-      int index = 0;
-      foreach (var item in Board)
+      // int index = 0;
+      foreach (Vendors vendor in Board)
       {
-        if (item.Id == id)
+        if (vendor.Id == id)
         {
-          item.Index = index;
-          return item;
+          // vendor.Index = index;
+          return vendor;
         }
-        index++;
+        // index++;
       }
-      return Vendors.Board[0];
+      return Board[0];
     }
 
     public static void DeleteVendor(int id)
@@ -61,10 +61,10 @@ namespace VendorOrder.Models
       Board.RemoveAt(ven.Index);
     }
 
-    public static void UpdateVendor(int id, string title, string description, string contact)
+    public static void UpdateVendor(int id, string name, string description, string contact)
     {
       Vendors ven = Find(id);
-      ven.Title = title;
+      ven.Name = name;
       ven.Description = description;
       ven.Contact = contact;
 

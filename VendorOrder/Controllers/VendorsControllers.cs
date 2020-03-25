@@ -11,7 +11,6 @@ namespace VendorOrder.Controllers
     public ActionResult Index()
     {
       List<Vendors> showList = Vendors.GetAll();
-      // List<Vendors> showList = Vendors.Board;
       return View(showList);
     }
 
@@ -25,18 +24,18 @@ namespace VendorOrder.Controllers
 
 
     [HttpPost("/vendors/create")]
-    public ActionResult Create(string title, string description, string contact)
+    public ActionResult Create(string name, string description, string contact)
     {
-      Vendors order = new Vendors(title, description, contact);
+      Vendors order = new Vendors(name, description, contact);
       return RedirectToAction("Index");
     }
 
-    [HttpPost("/vendors/orders")]
-    public ActionResult Create(int id, string title, string description, int price, string date)
+    [HttpPost("/vendors/{vendorId}/orders")]
+    public ActionResult Create(int id, string name, string description, int price, string date)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
       Vendors foundVendor = Vendors.Find(id);
-      Order newOrder = new Order(title, description, price, date);
+      Order newOrder = new Order(name, description, price, date);
       foundVendor.AddOrder(newOrder);
       List<Order> vendorOrders = foundVendor.Orders;
       model.Add("orders", vendorOrders);
@@ -54,7 +53,6 @@ namespace VendorOrder.Controllers
       List<Order> vendorOrders = selectedVendors.Orders;
       model.Add("vendor", selectedVendors);
       model.Add("orders", vendorOrders);
-      // Vendors order = Vendors.Find(id);
       return View(model);
     }
 
@@ -70,9 +68,9 @@ namespace VendorOrder.Controllers
 
 
     [HttpPost("/vendors/{id}")]
-    public ActionResult Update(int id, string title, string description, string contact)
+    public ActionResult Update(int id, string name, string description, string contact)
     {
-      Vendors.UpdateVendor(id, title, description, contact);
+      Vendors.UpdateVendor(id, name, description, contact);
       return RedirectToAction("Index");
     }
 

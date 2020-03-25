@@ -1,4 +1,4 @@
-
+@using VendorOrder.Models;
 @{
   Layout = "_Layout";
 }
@@ -11,10 +11,11 @@
     <h3>No vendors have been added yet!</h3>
   }
   <ul class="list-group">
-    @foreach (var vendors in Model)
+    @foreach (Vendors vendor in Model)
   { 
-    <li class="list-group-item">Title: @vendors.Title</li>
-    <a href="/vendors/@vendors.Id"><button class="btn btn-success btn-lg btn-block">Show</button></a>
+    <h3 class="text-center"><a href="/vendors/@vendor.Id">@vendor.Name</a></h3>
+    @* <li class="list-group-item">Title: @vendors.Title</li> *@
+    <a href="/vendors/@vendor.Id"><button class="btn btn-success btn-lg btn-block">Show</button></a>
   <br>
   }
   
