@@ -23,8 +23,9 @@ _This C# console application was designed to help track vendors that purchase ba
 Behavior | Input | Output
 --- | --- | ---
 program displays home page with a splash screen | "/" | return splash screen | 
-user selects button to add a new vendor | add new vendor | vendor is recorded | 
-user selects see all vendors | display all vendors | list of all vendors
+user selects button to add a new vendor | add new vendor | return add a new vendor page | 
+user is prompt to input vendor details | user inputs name, description, contact and selects add vendor | returns list of all vendors
+users selects add a new order | user inputs title, description, price, date and selects add order | return list of order for the vendor selected | 
 
 ## Known Bugs
 
