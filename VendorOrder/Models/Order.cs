@@ -9,7 +9,7 @@ namespace VendorOrder.Models
 
     public string Title { get; set; }
 
-    public string Description { get; set; }
+    public string OrderDescription { get; set; }
 
     public int Price { get; set; }
 
@@ -18,60 +18,33 @@ namespace VendorOrder.Models
     public int Index { get; set; }
     public int Id { get; set; }
 
-    public Order(string title, string description, int price, string date)
+    public Order(string orderName, string orderDescription, int price, string date)
     {
-      Title = title;
-      Description = description;
+      Title = orderName;
+      OrderDescription = orderDescription;
       Price = price;
       Date = date;
-      Index = Board.Count;
-      Id = ++_vendorCount;
       Board.Add(this);
+      Id = _vendorCount++;
     }
     public static void ClearAll()
     {
       Board.Clear();
     }
-
     public static List<Order> GetAll()
-
     {
       return Board;
     }
-
     public static Order Find(int id)
     {
-      int index = 0;
-      foreach (var item in Board)
+      foreach (Order order in Board)
       {
-        if (item.Id == id)
+        if (order.Id == id)
         {
-          item.Index = index;
-          return item;
+          return order;
         }
-        index++;
       }
-      return Order.Board[0];
+      return Board[0];
     }
-
-    public static void DeleteOrder(int id)
-    {
-      Order ord = Find(id);
-      Board.RemoveAt(ord.Index);
-    }
-
-    public static void UpdateOrder(int id, string title, string description, int price, string date)
-    {
-      Order ord = Find(id);
-      ord.Title = title;
-      ord.Description = description;
-      ord.Price = price;
-      ord.Date = date;
-
-    }
-
-
   }
-
-
 }

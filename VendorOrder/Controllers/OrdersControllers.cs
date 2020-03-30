@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using VendorOrder.Models;
+using System.Collections.Generic;
 
 namespace VendorOrder.Controllers
 {
@@ -9,14 +9,14 @@ namespace VendorOrder.Controllers
     [HttpGet("/vendors/{vendorId}/orders/new")]
     public ActionResult New(int vendorId)
     {
-      Vendors vendors = Vendors.Find(vendorId);
-      return View(vendors);
+      Vendor vendor = Vendor.Find(vendorId);
+      return View(vendor);
     }
     [HttpGet("/vendors/{vendorId}/orders/{orderId}")]
     public ActionResult Show(int vendorId, int orderId)
     {
       Order order = Order.Find(orderId);
-      Vendors vendor = Vendors.Find(vendorId);
+      Vendor vendor = Vendor.Find(vendorId);
       Dictionary<string, object> model = new Dictionary<string, object>();
       model.Add("order", order);
       model.Add("vendor", vendor);

@@ -1,23 +1,19 @@
-@using VendorOrder.Models;
+@using VendorOrder.Models; 
 @{
   Layout = "_Layout";
 }
-<div class="col-md-8 offset-md-2">
-
+<div>
   <h1 class="text-center">Vendors</h1>
-  
   @if (Model.Count == 0)
   {
-    <h3>No vendors have been added yet!</h3>
+    <p class="text-center">No Vendors Have Been Added Yet!</p>
   }
-  <ul class="list-group">
-    @foreach (Vendors vendor in Model)
-  { 
-    <h3 class="text-center"><a href="/vendors/@vendor.Id">@vendor.Name</a></h3>
-    @* <li class="list-group-item">Title: @vendors.Title</li> *@
-    <a href="/vendors/@vendor.Id"><button class="btn btn-success btn-lg btn-block">Show</button></a>
-  <br>
+  @foreach (Vendor vendor in Model)
+  {
+    <p class="text-center"><a href='/vendors/@vendor.Id'>@vendor.Name</a></p>
+    <br>
   }
-  
-  </ul>
+   <p class="text-center">
+    <a class="btn btn-info" href='/vendors/new' role="button">Add A New Vendor</a>
+  </p>
 </div>

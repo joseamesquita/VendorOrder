@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using System;
 
 namespace VendorOrder.Models
 {
-  public class Vendors
+  public class Vendor
   {
     private static int _vendorCount = 1;
-    public static List<Vendors> Board = new List<Vendors>();
+    public static List<Vendor> Board = new List<Vendor>();
 
     public List<Order> Orders { get; set; }
 
@@ -18,64 +19,37 @@ namespace VendorOrder.Models
     public int Index { get; set; }
     public int Id { get; set; }
 
-    public Vendors(string name, string description, string contact)
+    public Vendor(string name, string description, string contact)
     {
       Name = name;
       Description = description;
       Contact = contact;
-      // Id = ++_vendorCount;
       Board.Add(this);
-      // Index = Board.Count;
-      Id = ++_vendorCount;
+      Id = _vendorCount++;
       Orders = new List<Order> { };
-
     }
     public static void ClearAll()
     {
       Board.Clear();
     }
-
-    public static List<Vendors> GetAll()
+    public static List<Vendor> GetAll()
     {
       return Board;
     }
-
-    public static Vendors Find(int id)
+    public static Vendor Find(int id)
     {
-      // int index = 0;
-      foreach (Vendors vendor in Board)
+      foreach (Vendor vendor in Board)
       {
         if (vendor.Id == id)
         {
-          // vendor.Index = index;
           return vendor;
         }
-        // index++;
       }
       return Board[0];
-    }
-
-    public static void DeleteVendor(int id)
-    {
-      Vendors ven = Find(id);
-      Board.RemoveAt(ven.Index);
-    }
-
-    public static void UpdateVendor(int id, string name, string description, string contact)
-    {
-      Vendors ven = Find(id);
-      ven.Name = name;
-      ven.Description = description;
-      ven.Contact = contact;
-
     }
     public void AddOrder(Order order)
     {
       Orders.Add(order);
     }
-
-
   }
-
-
 }

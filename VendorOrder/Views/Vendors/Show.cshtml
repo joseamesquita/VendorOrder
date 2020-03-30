@@ -1,31 +1,20 @@
-@using VendorOrder.Models;
 @{
   Layout = "_Layout";
 }
-<div class="row">
-  <div class="col-md-8 offset-md-2">
+@using VendorOrder.Models; 
 
-    <h1 class="text-center">Show Orders for @Model["vendor"].Name </h1>
-    
+<div class="text-center">
+  <h1 class="text-center">Orders for @Model["vendor"].Name</h1>
+  <p>
     @if(@Model["orders"].Count == 0)
     {
-      <p>No orders for this vendor!</p>
+    <p>No Orders available for this vendor.</p>
     }
-    <ul class="list-group">
-    @foreach (Order order in Model["orders"])
-  { 
-    <li><a href='/vendors/@Model["vendor"].Id/orders.Id'>@order.Title</a></li>
-    @* <a href="/vendors/@vendor.Id"><button class="btn btn-success btn-lg btn-block">Show</button></a> *@
-  <br>
+  </p>
+  @foreach (Order order in @Model["orders"])
+  {
+    <li><a href='/vendors/@Model["vendor"].Id/orders/@order.Id'>@order.Title</a></li>
   }
-  
-  </ul>
-    
-    <a href='/vendors/@Model["vendor"].Id/orders/new' class="btn btn-success">Add new order</a>
-    <a href='/vendors/@Model["vendor"].Id/edit'><button class="btn btn-success">Edit</button></a>
-
-    <form action='/vendors/delete/@Model["vendor"].Id' method="post">
-      <button class="btn btn-danger">Delete</button>
-    </form>
-  </div>
+  <br>
+  <a class="btn btn-info" href='/vendors/@Model["vendor"].Id/orders/new' >Add New Order</a>
 </div>

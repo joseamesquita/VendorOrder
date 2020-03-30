@@ -1,22 +1,13 @@
 @{
   Layout = "_Layout";
 }
-<div class="row">
-  <div class="col-md-8 offset-md-2">
-
-    <h1 class="text-center">Show Orders </h1>
-    
-    <li>Vendor: @Model["vendor"].Name</li>
-    <li>@Model["vendor"].Description</li>
-    <li>Order Title: @Model["order"].Title</li>
-    <li>Order Description: @Model["order"].Description</li>
-    <li>Order Price: @Model["order"].Price</li>
-    <li>Order Date: @Model["order"].Date</li>
-
-    <a href="/vendors/@Model.Id/edit"><button class="btn btn-success">Edit</button></a>
-
-    <form action="/vendors/delete/@Model.Id" method="post">
-      <button class="btn btn-danger">Delete</button>
-    </form>
-  </div>
+<div class="text-center">
+  <h1 class="text-center">Vendor Order Details:</h1>
+  <h4>Vendor: @Model["vendor"].Name</h4>
+  <h4>Description: @Model["vendor"].Description</h4>
+  <h4>Contact: @Model["vendor"].Contact</h4>
+  <h4>Title: @Model["order"].Title</h4>
+  <h4>Description @Model["order"].OrderDescription</h4>
+  <h4>Date: @Model["order"].Date</h4>
+  <h4>Price: $@Model["order"].Price</h4>
 </div>
