@@ -8,6 +8,13 @@
 
 _This C# console application was designed to help track vendors that purchase baked goods and orders belonging to those vendors. This application will allow the user to create a new Vendor along with a order to keep track of all the vendor's record purchasing baked goods._
 
+## Objectives 
+
+* Splash page is used 
+* Project has 'Vendor' and 'Order' classes 
+* Project uses two or more controllers 
+* GET and POST requests/responses are used 
+
 ## Setup/Installation Requirements
 
 1. visit https://github.com/joseamesquita/VendorOrder.git
