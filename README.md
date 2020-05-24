@@ -6,9 +6,11 @@
 
 ## Description
 
-_This C# console application was designed to help track vendors that purchase baked goods and orders belonging to those vendors. This application will allow the user to create a new Vendor along with a order to keep track of all the vendor's record purchasing baked goods._
+_This C# console application was designed to help Pierre track vendors that purchase items and orders belonging to those vendors. This application will allow the Pierre to create a new vendor along with an order to keep track of all the vendor's orders._
 
-## Objectives 
+## Objective 
+
+_The Objective of this project is to develop an MVC application to help Pierre keep track of his Vendors and their orders. _
 
 * Splash page is used 
 * Project has 'Vendor' and 'Order' classes 
@@ -46,11 +48,14 @@ _Please reach out to me if you have any questions or any concerns with this appl
 
 * C#
 * _Git_
-* _VSCode_
-* _MVC_
+* _Visual Studio Code_
+* _.NET Core_
+* _ASP.NET Core MVC_
+* _Razor_
+
 
 ### License
 
-*This is licensed by MIT.*
+*This software is licensed by MIT license.*
 
-Copyright (c) 2016 **_Jose Amesquita_**
+Copyright (c) 2020 **_Pierre's Vender Tracker_**
