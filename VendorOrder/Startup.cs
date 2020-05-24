@@ -34,6 +34,8 @@ namespace VendorOrder
           template: "{controller=Home}/{action=Index}/{id?}");
       });
 
+      app.UseStaticFiles(); //THIS IS NEW for CSS
+
       app.Run(async (context) =>
       {
         await context.Response.WriteAsync("Something went wrong!");
