@@ -10,27 +10,30 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Vendors</title>
 </head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">Home</a>
+<body style="background-color: #ffe44d;">
+  <nav class="navbar navbar-expand-lg" style="background-color: transparent;">
+      <a class="navbar-brand" style = "color: black;" href="/">Home</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="/vendors">List of Vendors</a>
+            <a class="nav-link" style = "color: black;" href="/vendors">List of Vendors</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/vendors/new">Add A Vendor</a>
+            <a class="nav-link" style = "color: black;" href="/vendors/new">Add A Vendor</a>
           </li>
   
         </ul>
       </div>
     </nav>
-    <div class="container">
-
-      @RenderBody()
+    <div class="container" style="background-color: #ffe44d;">
+      <div class="card" style="background-color: #ffe44d; border: none;">
+        <div class="card-body">
+          @RenderBody()
+        </div>
+      </div>
     </div>
 </body>
 </html>

@@ -1,14 +1,40 @@
 @{
   Layout = "_Layout";
 }
-<div class="text-center">
-  <h1 class="text-center">Add A New Vendor</h1>
+@model List<VendorOrder.Models.Vendor>;
+@using VendorOrder.Models;
+
+<div class="jumbotron jumbotron-fluid" style="background: none;">
+  <div class="container">
+    <h1 class="display-4">Add A New Vendor</h1>
+    <p class="lead">Vendors must complete the form in order to keep track of Pierre's inventory.</p>
+  </div>
+</div>
+  
+
+<div class="card" style="background-color: #ffe44d; border: none;">
+  <div class="card-body">
+  
   <form action="/vendors" method="post">
-    <input id="nameVendor" name="nameVendor" placeholder="Vendor Name" type="text">
-    <input id="descriptionVendor" name="descriptionVendor" placeholder="Description" type="text">
-    <input id="contactVendor" name="contactVendor" placeholder="Email" type="text">
-    <button class="btn btn-info" type="submit">Add  Vendor</button>
+  <div class="form-group" action = "/vendors" method = "post">
+    <label for="nameVendor">Name of the Vendor: </label>
+    <input id="nameVendor" name="nameVendor" placeholder="Vendor Name" type="text" class="form-control">
+  </div>
+  
+  <div class="form-group" action = "/vendors" method = "post">
+    <label for = "descriptionVendor">Description of the Order: </label>
+    <input id="descriptionVendor" name="descriptionVendor" placeholder="Description" type="text" class="form-control">
+  </div>
+  
+  <div class="form-group" action = "/vendors" method = "post">
+  <label for = "contactVendor">Contact of the Vendor: </label>
+    <input id="contactVendor" name="contactVendor" placeholder="Email" type="text" class="form-control">
+  </div> 
+  
+  <button class="btn btn outline" style = "background-color: #ffe44d;border: solid;" type="submit">Submit</button>
+  </div>
   </form>
 </div>
+
 
 

@@ -2,20 +2,40 @@
   Layout = "_Layout";
 }
 
-<div class="text-center">
-  <h1 class="text-center">Add A New Order</h1>
-  <p>Vendor: @Model.Name</p>
+<div class="jumbotron jumbotron-fluid" style="background: none;">
+  <div class="container">
+    <h1 class="display-4">Add A New Order</h1>
+    <p>Vendor: @Model.Name</p>
+  </div>
+</div>
+
+<div class="card" style="background-color: #ffe44d; border: none;">
+  <div class="card-body">
   
   <form action="/vendors/@Model.Id/orders" method="post">
   
-    <input id="nameOrder" name="nameOrder" placeholder="Order Title" type="text">
+    <div class="form-group" action = "/vendors" method = "post">
+      <label for="nameOrder">Name of the Order: </label>
+      <input id="nameOrder" name="nameOrder" placeholder="Order Title" type="text" class="form-control">
+    </div>
     
-    <input id="descriptionOrder" name="descriptionOrder" placeholder="Description" type="text">
+    <div class="form-group" action = "/vendors" method = "post">
+      <label for="descriptionOrder">Description of the Order: </label>
+      <input id="descriptionOrder" name="descriptionOrder" placeholder="Description" type="text" class="form-control">
+    </div>
     
-    <input id="priceOrder" name="priceOrder" placeholder="Price" type="text">
+    <div class="form-group" action = "/vendors" method = "post">
+      <label for="priceOrder">Price of the Order: </label>
+      <input id="priceOrder" name="priceOrder" placeholder="Price" type="text" class="form-control">
+    </div>
     
-    <input id="dateOrder" name="dateOrder" placeholder="Date of Order" type="text">
-    <button class="btn btn-info" type='submit'>Add Order</button>
+    <div class="form-group" action = "/vendors" method = "post">
+      <label for="dateOrder">Date of the Order: </label>
+      <input id="dateOrder" name="dateOrder" placeholder="Date of Order" type="text" class="form-control">
+    </div>
+    
+    <button class="btn btn outline" style = "background-color: #ffe44d;border: solid;" type="submit">Submit</button>
   </form>
+  </div>
 </div>
 

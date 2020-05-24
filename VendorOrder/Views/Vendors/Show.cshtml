@@ -3,18 +3,26 @@
 }
 @using VendorOrder.Models; 
 
-<div class="text-center">
-  <h1 class="text-center">Orders for @Model["vendor"].Name</h1>
-  <p>
-    @if(@Model["orders"].Count == 0)
-    {
-    <p>No Orders available for this vendor.</p>
-    }
-  </p>
+
+<div class="jumbotron jumbotron-fluid" style="background: none;">
+  <div class="container">
+    <h1 class="display-4">Orders for @Model["vendor"].Name</h1>
+  </div>
+</div>
+
+<div class="card" style="background-color: #ffe44d; border: none;">
+  <div class="card-body">
+    <p>
+      @if(@Model["orders"].Count == 0)
+      {
+      <p>No Orders available for this vendor.</p>
+      }
+    </p>
   @foreach (Order order in @Model["orders"])
   {
-    <li><a href='/vendors/@Model["vendor"].Id/orders/@order.Id'>@order.Title</a></li>
+    <li><a style="color: black" href='/vendors/@Model["vendor"].Id/orders/@order.Id'>@order.Title</a></li>
   }
   <br>
-  <a class="btn btn-info" href='/vendors/@Model["vendor"].Id/orders/new' >Add New Order</a>
+  <a class="btn btn outline" href='/vendors/@Model["vendor"].Id/orders/new' style = "background-color: #ffe44d;border: solid;color: black;">Add New Order</a>
+  </div>
 </div>

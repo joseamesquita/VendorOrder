@@ -3,17 +3,18 @@
   Layout = "_Layout";
 }
 <div>
-  <h1 class="text-center">Vendors</h1>
+  <h1 class="text-center"> List of Vendors</h1>
   @if (Model.Count == 0)
   {
     <p class="text-center">No Vendors Have Been Added Yet!</p>
   }
   @foreach (Vendor vendor in Model)
   {
-    <p class="text-center"><a href='/vendors/@vendor.Id'>@vendor.Name</a></p>
+    <p class="text-center">Name: <a style = "color: black;" href='/vendors/@vendor.Id'>@vendor.Name</a></p>
     <br>
   }
-   <p class="text-center">
-    <a class="btn btn-info" href='/vendors/new' role="button">Add A New Vendor</a>
+   <p class="text-center"  >
+    <a class="btn btn outline" href='/vendors/new' type = "submit" style = "background-color: #ffe44d;border: solid; color: black;">Add A New Vendor</a>
   </p>
+    @* <button class="btn btn outline" style = "background-color: #ffe44d;border: solid;" type="submit">Submit</button> *@
 </div>

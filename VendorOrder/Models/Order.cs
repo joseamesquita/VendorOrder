@@ -5,6 +5,7 @@ namespace VendorOrder.Models
   public class Order
   {
     private static int _vendorCount = 0;
+
     public static List<Order> Board { get; set; } = new List<Order>();
 
     public string Title { get; set; }
